@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- contact -->
+    <div class="contact">
+        <div class="container-fluid">
+            <div class="row ">
+                <div class="col-md-12">
+                    <div class="titlepage text_align_center">
+                        <h2>Contact Us</h2>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mapimg">
+                        <figure><img src="{% static 'images/map.png' %}" alt="#"/></figure>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <form id="request" class="main_form" method="post">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Name</label>
+                                {{ contact_form.name }}
+                            </div>
+                            <div class="col-md-6">
+                                <label>Phone Number</label>
+                                {{ contact_form.phone }}
+                            </div>
+                            <div class="col-md-12">
+                                <label>Email</label>
+                                {{ contact_form.email }}
+                            </div>
+                            <div class="col-md-12">
+                                <label>Message</label>
+                                {{ contact_form.message }}
+                            </div>
+                            {% csrf_token %}
+                            <div class="col-md-12">
+                                <button class="send_btn">Send</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact -->
+{% endblock %}

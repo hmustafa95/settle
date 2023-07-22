@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Edit Your Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet"
+          href="{% static 'registration/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css' %}">
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="{% static 'registration/css/style.css' %}">
+</head>
+
+<body>
+
+<div class="wrapper" style="background-image: url('{% static 'registration/images/bg-registration-form-1.jpg' %}');">
+    <div class="inner">
+        <div class="image-holder">
+            <img src="{% static 'registration/images/registration-form-1.jpg' %}" alt="">
+        </div>
+        <form action="{% url 'profile-delete' pk=object.pk %}" method="post">
+            <h3>Are you sure you want to delete your profile?</h3>
+            <button>Delete
+                <i class="zmdi zmdi-arrow-right"></i>
+            </button>
+            {% csrf_token %}
+            <div style="display: flex; justify-content: center; margin-top: 10px;">
+                <a href="{% url 'home-page' %}"
+                   style="background: lightcoral; font-size: 1.44em; padding: 0.45em 1.44em; text-decoration: none; color: white;">Home
+                    Page</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

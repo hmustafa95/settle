@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- contact -->
+    <div class="contact">
+        <div class="container-fluid">
+            <div class="row ">
+                <div class="col-md-12">
+                    <div class="titlepage text_align_center">
+                        <h2>Send Your Invitation Online</h2>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mapimg">
+                        <figure><img src="{% static 'images/map.png' %}" alt="#"/></figure>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <form id="request" class="main_form" method="post" action="{% url 'invite-success' %}">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Name</label>
+                                {{ invite_form.name }}
+                            </div>
+                            <div class="col-md-6">
+                                <label>Email</label>
+                                {{ invite_form.email }}
+                            </div>
+                            <div class="col-md-6">
+                                <label>Location</label>
+                                {{ invite_form.location }}
+                            </div>
+                            <div class="col-md-6">
+                                <label>Date</label>
+                                {{ invite_form.date }}
+                            </div>
+                            {% csrf_token %}
+                            <div class="col-md-12">
+                                <button class="send_btn">Send</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact -->
+{% endblock %}

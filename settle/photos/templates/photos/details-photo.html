@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/gallery-style.css' %}">
+{% endblock %}
+
+{% block content %}
+    <main>
+    <div class="headline">
+            <h2>Photo Details</h2>
+    </div>
+    <div class="cards">
+        <div class="eachcard" style="width: 1500px">
+            <div class="topcard">
+                <img src="{{ photo.photo.url }}" alt="photo" style="height: 100%; width: 100%">
+            </div>
+            <div class="botcard">
+                <h3>{{ photo.title }}</h3>
+                <p>{{ photo.description }}<br>
+                    {{ photo.location }}<br>
+                    {{ photo.date_of_publication }}
+                </p>
+                <a href="{% url 'edit-photo' photo.pk %}" style="background-color: black; color: white; border-radius: 6px; padding: 6px; width: 150px; text-align: center; margin-top: 6px">Edit</a>
+                <a href="{% url 'confirm-delete-photo' photo.pk %}" style="background-color: red; color: white; border-radius: 6px; padding: 6px; width: 150px; text-align: center; margin-top: 6px">Delete</a>
+            </div>
+        </div>
+    </div>
+    </main>
+{% endblock %}

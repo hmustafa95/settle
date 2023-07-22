@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Marriage Invitation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+    }
+    .invitation {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333333;
+    }
+    p {
+      text-align: center;
+      margin-bottom: 10px;
+      color: #666666;
+    }
+    .details {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="invitation">
+    <h1>Marriage Invitation</h1>
+    <p>You are cordially invited to celebrate the marriage of</p>
+    <h2>{{ person_name|escape }}</h2>
+    <div class="details">
+      <p>Date: {{ marriage_date|escape }}</p>
+      <p>Location: {{ marriage_location|escape }}</p>
+    </div>
+    <p>Please join us in this joyous occasion. Your presence will be highly appreciated.</p>
+    <p>We look forward to celebrating together!</p>
+  </div>
+</body>
+</html>

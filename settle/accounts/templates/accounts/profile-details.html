@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- about -->
+    <div class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage text_align_center">
+                        <h2>Your Profile</h2>
+                    </div>
+                </div>
+                <div class="col-md-10 offset-md-1">
+                    <div class="about_img text_align_center">
+                        <figure><img src="{{ user.profile_picture }}" alt="#"/></figure>
+                    </div>
+                </div>
+                <div class="col-md-8 offset-md-2">
+                    <div class="about_img text_align_center">
+                        <p style="padding: 5px"><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+                        <p style="padding: 5px"><strong>Spouse
+                            Name:</strong> {{ user.spouse_first_name }} {{ user.spouse_last_name }}</p>
+                        <p style="padding: 5px"><strong>Date of Marriage:</strong> {{ user.date_of_marriage }}</p>
+                        <p style="padding: 5px"><strong>Email:</strong> {{ user.email }}</p>
+                        <a class="read_more" href="{% url 'profile-edit' pk=request.user.pk %}">Edit Profile</a>
+                        <a class="read_more" href="{% url 'profile-delete' pk=request.user.pk %}" style="margin-top: 10px">Delete Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end about -->
+{% endblock %}

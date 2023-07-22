@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- about -->
+    <div class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage text_align_center">
+                        <h2>Are you sure?</h2>
+                    </div>
+                </div>
+                <div class="col-md-10 offset-md-1">
+                    <div class="about_img text_align_center">
+                        <figure><img src="{{ photo.photo.url }}" alt="#"/></figure>
+                    </div>
+                </div>
+                <div class="col-md-8 offset-md-2">
+                    <div class="about_img text_align_center">
+                        <a class="read_more" href="{% url 'delete-photo' photo.pk %}" style="margin-top: 12px">Delete Photo</a>
+                        <a class="read_more" href="{% url 'gallery' %}" style="margin-top: 10px">Gallery</a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

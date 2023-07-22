@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- about -->
+    <div class="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage text_align_center">
+                        <h2>About Us</h2>
+                    </div>
+                </div>
+                <div class="col-md-10 offset-md-1">
+                    <div class="about_img text_align_center">
+                        <figure><img src="{% static 'images/about.jpg' %}" alt="#"/></figure>
+                    </div>
+                </div>
+                <div class="col-md-8 offset-md-2">
+                    <div class="about_img text_align_center">
+                        <p>Meet John and Emily, the dedicated organizers of our marriage website. As a married couple
+                            themselves, they bring firsthand understanding of the transformative power of true love.
+                            Combining their expertise in matchmaking with their genuine passion for fostering meaningful
+                            connections, John and Emily have created a platform that is truly exceptional. Their
+                            personalized approach and unwavering support ensure that every user receives the guidance
+                            they need to embark on their own journey towards a lifetime of happiness. Trust in their
+                            expertise and let them guide you towards the love story you've always dreamed of.
+                        </p>
+                        <a class="read_more" href="{% url 'contact' %}">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end about -->
+{% endblock %}

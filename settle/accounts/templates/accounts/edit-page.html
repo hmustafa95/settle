@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Edit Your Profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- MATERIAL DESIGN ICONIC FONT -->
+    <link rel="stylesheet"
+          href="{% static 'registration/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css' %}">
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="{% static 'registration/css/style.css' %}">
+</head>
+
+<body>
+
+<div class="wrapper" style="background-image: url('{% static 'registration/images/bg-registration-form-1.jpg' %}');">
+    <div class="inner">
+        <div class="image-holder">
+            <img src="{% static 'registration/images/registration-form-1.jpg' %}" alt="">
+        </div>
+        <form action="{% url 'profile-edit' pk=object.pk %}" method="post">
+            <h3>Edit Your Profile</h3>
+            <div class="form-wrapper">
+                {{ form.username.errors }}
+                {{ form.username|escape }}
+                <i class="zmdi zmdi-account"></i>
+            </div>
+            <div class="form-wrapper">
+                {{ form.email.errors }}
+                {{ form.email|escape }}
+                <i class="zmdi zmdi-email"></i>
+            </div>
+            <div class="form-wrapper">
+                {{ form.first_name.errors }}
+                {{ form.first_name|escape }}
+                <i class="zmdi zmdi-account"></i>
+            </div>
+            <div class="form-wrapper">
+                {{ form.last_name.errors }}
+                {{ form.last_name|escape }}
+                <i class="zmdi zmdi-account"></i>
+            </div>
+            <div class="form-wrapper">
+                {{ form.date_of_marriage.errors }}
+                {{ form.date_of_marriage|escape }}
+                <i class="zmdi zmdi-account"></i>
+            </div>
+            <div class="form-wrapper">
+                {{ form.profile_picture.errors }}
+                {{ form.profile_picture|escape }}
+                <i class="zmdi zmdi-account"></i>
+            </div>
+            <div class="form-wrapper">
+                {{ form.spouse_first_name.errors }}
+                {{ form.spouse_first_name|escape }}
+                <i class="zmdi zmdi-account"></i>
+            </div>
+            <div class="form-wrapper">
+                {{ form.spouse_last_name.errors }}
+                {{ form.spouse_last_name|escape }}
+                <i class="zmdi zmdi-account"></i>
+            </div>
+            <button>Edit Profile
+                <i class="zmdi zmdi-arrow-right"></i>
+            </button>
+            {% csrf_token %}
+            <div style="display: flex; justify-content: center; margin-top: 10px;">
+                <a href="{% url 'home-page' %}"
+                   style="background: lightcoral; font-size: 1.44em; padding: 0.45em 1.44em; text-decoration: none; color: white;">Home
+                    Page</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

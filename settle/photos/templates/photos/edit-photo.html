@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!-- contact -->
+    <div class="contact">
+        <div class="container-fluid">
+            <div class="row ">
+                <div class="col-md-12">
+                    <div class="titlepage text_align_center">
+                        <h2>Edit Photo</h2>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mapimg">
+                        <figure><img src="{% static 'images/map.png' %}" alt="#"/></figure>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <form id="request" class="main_form" method="post" action="{% url 'edit-photo' photo.pk %}" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label>Title</label>
+                                {{ form.title }}
+                            </div>
+                            <div class="col-md-12">
+                                <label>Location</label>
+                                {{ form.location }}
+                            </div>
+                            <div class="col-md-12">
+                                <label>Description</label>
+                                {{ form.description }}
+                            </div>
+                            <div class="col-md-12">
+                                <button class="send_btn" type="submit">Edit Photo</button>
+                                {% csrf_token %}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact -->
+{% endblock %}

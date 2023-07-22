@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <style>
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .search-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .search-input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .search-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .photo-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .photo-item {
+    margin: 10px;
+    text-align: center;
+    max-width: 300px;
+    max-height: 500px;
+  }
+</style>
+
+<div class="search-container">
+  <h1>Photo Search</h1>
+
+  <form class="search-form" method="GET">
+    {% csrf_token %}
+    {{ form.search_bar }}
+    <button class="search-button" type="submit">Search</button>
+  </form>
+
+  {% if photos %}
+    <h2>Search Results for "{{ query }}"</h2>
+    <div class="photo-list">
+      {% for photo in photos %}
+        <div class="photo-item">
+          <img src="{{ photo.photo.url }}" alt="{{ photo.title }}">
+          <h3>{{ photo.title }}</h3>
+          <p>{{ photo.description }}</p>
+          <p>Location: {{ photo.location }}</p>
+          <p>Date of Publication: {{ photo.date_of_publication }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No photos found.</p>
+  {% endif %}
+</div>
+{% endblock %}
