@@ -19,4 +19,12 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    from dotenv import load_dotenv
+
+    load_dotenv()
+
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "your_project_name.settings")
+
+    from django.core.management import execute_from_command_line
+
+    execute_from_command_line(sys.argv)
