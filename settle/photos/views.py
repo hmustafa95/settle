@@ -26,6 +26,7 @@ def add_photo(request):
     return render(request, 'photos/add-photo.html', context)
 
 
+@login_required
 # This view displays the details of a specific photo.
 def details_photo(request, pk):
     photo = Photo.objects.filter(pk=pk).get()
@@ -38,6 +39,7 @@ def details_photo(request, pk):
     return render(request, 'photos/details-photo.html', context)
 
 
+@login_required
 # This view handles editing of a specific photo's details.
 def edit_photo(request, pk):
     photo = Photo.objects.filter(pk=pk).get()
@@ -60,6 +62,7 @@ def edit_photo(request, pk):
     return render(request, 'photos/edit-photo.html', context)
 
 
+@login_required
 # This view displays a confirmation page before deleting a specific photo.
 def confirm_delete_photo(request, pk):
     photo = Photo.objects.filter(pk=pk).get()
@@ -72,6 +75,7 @@ def confirm_delete_photo(request, pk):
     return render(request, 'photos/delete-photo.html', context)
 
 
+@login_required
 # This view handles the deletion of a specific photo.
 def delete_photo(request, pk):
     photo = Photo.objects.filter(pk=pk)
