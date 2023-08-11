@@ -1,7 +1,8 @@
+from django.contrib.auth.decorators import login_required
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.utils.html import strip_tags
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render
 from .forms import InvitationForm
 from settle.common.forms import SubscribeForm
 
@@ -22,6 +23,7 @@ def send_invitation_email(invitee_email, person_name, marriage_date, marriage_lo
     send_mail(subject, plain_message, from_email, recipient_list, html_message=html_message)
 
 
+@login_required
 def invite(request):
     if request.method == 'POST':
         invite_form = InvitationForm(request.POST)  # Create an invitation form from the submitted data

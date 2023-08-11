@@ -4,6 +4,8 @@ from django.contrib.auth import get_user_model
 from django.contrib.auth import views as auth_views
 from .forms import UserCreateForm, UserLoginForm, UserEditForm
 from ..common.forms import SubscribeForm
+from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 UserModel = get_user_model()
 
@@ -40,7 +42,7 @@ class UserDetailsView(views.DetailView):
 
 
 # View for editing user profile
-class UserProfileEditView(views.UpdateView):
+class UserProfileEditView(LoginRequiredMixin, views.UpdateView):
     model = UserModel
     form_class = UserEditForm
     template_name = 'accounts/edit-page.html'
@@ -50,7 +52,7 @@ class UserProfileEditView(views.UpdateView):
 
 
 # View for deleting user profile
-class UserProfileDeleteView(views.DeleteView):
+class UserProfileDeleteView(LoginRequiredMixin, views.DeleteView):
     model = UserModel
     template_name = 'accounts/delete-page.html'
     success_url = reverse_lazy('home-page')
