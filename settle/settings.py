@@ -152,6 +152,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp-relay.brevo.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'settleprojectdjango@gmail.com'
-EMAIL_HOST_PASSWORD = 'L0gKF5Bh1c6zwPTq'
+EMAIL_HOST_PASSWORD = 'WjsCdtL4GDa1J28N'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
